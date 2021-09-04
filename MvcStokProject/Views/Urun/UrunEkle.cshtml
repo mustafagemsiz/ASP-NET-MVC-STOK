@@ -1,0 +1,34 @@
+﻿@model MvcStokProject.Models.Entity.TBL_URUN
+
+@{
+    ViewBag.Title = "UrunEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UrunEkle", "Urun", FormMethod.Post))
+{
+    <h2 style="text-align:center; margin-top:15px;">Ürün Ekleme Paneli</h2>
+    <div>
+        @Html.HiddenFor(x => x.ID)
+        <label style="font-weight:bold;">Ürün Ad</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Ürün Marka</label>
+        @Html.TextBoxFor(x => x.MARKA, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Stok Adet</label>
+        @Html.TextBoxFor(x => x.STOK, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Alış Fiyat Tutarı</label>
+        @Html.TextBoxFor(x => x.ALİSFİYAT, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Satış Fiyat Tutarı</label>
+        @Html.TextBoxFor(x => x.SATİSFİYAT, new { @class = "form-control" })
+        <br />
+        <label style="font-weight:bold;">Ürün Kategori</label>
+        @Html.DropDownListFor(x=>x.TBL_KATEGORI.ID,(List<SelectListItem>) ViewBag.kategori,new { @class="form-control"})
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+
+}

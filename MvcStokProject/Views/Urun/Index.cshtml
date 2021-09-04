@@ -1,0 +1,45 @@
+﻿@using MvcStokProject.Models.Entity
+@model List<TBL_URUN>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .margintop{
+        margin-bottom:15px;
+    }
+</style>
+<h2 style="text-align:center; margin-top:15px;">Ürünler</h2>
+@Html.ActionLink("Ürün Ekle","UrunEkle",null,new { @class="btn btn-primary margintop"})
+<table class="myList table table-bordered table-striped table-hover">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Ürün Ad</th>
+            <th scope="col">Ürün Marka</th>
+            <th scope="col">Ürün Stok</th>
+            <th scope="col">Ürün Alış</th>
+            <th scope="col">Ürün Satış</th>
+            <th scope="col">Ürün Kategori</th>
+
+            <th scope="col" style="width:150px" scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.AD</td>
+                <td>@item.MARKA</td>
+                <td>@item.STOK</td>
+                <td>@item.ALİSFİYAT</td>
+                <td>@item.SATİSFİYAT</td>
+                <td>@item.TBL_KATEGORI.AD</td>
+                <td>
+                    @Html.ActionLink("Güncelle", "KategoriGetir", new { id = item.ID }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Sil", "KategoriSil", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Db_StokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_KATEGORI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_MUSTERI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="30" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="30" />
+    <Property Name="SEHIR" Type="varchar" MaxLength="15" />
+    <Property Name="TELEFON" Type="varchar" MaxLength="25" />
+    <Property Name="ADRES" Type="varchar" MaxLength="50" />
+    <Property Name="BAKIYE" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="TBL_PERSONEL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="30" />
+    <Property Name="SOYAD" Type="varchar" MaxLength="30" />
+    <Property Name="TELEFON" Type="varchar" MaxLength="25" />
+    <Property Name="ADRES" Type="varchar" MaxLength="50" />
+    <Property Name="DEPARTMAN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TBL_SATIS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URUN" Type="int" />
+    <Property Name="PERSONEL" Type="int" />
+    <Property Name="MUSTERI" Type="int" />
+    <Property Name="FIYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TARIH" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="TBL_URUN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AD" Type="varchar" MaxLength="50" />
+    <Property Name="MARKA" Type="varchar" MaxLength="50" />
+    <Property Name="STOK" Type="int" />
+    <Property Name="ALİSFİYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SATİSFİYAT" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="KATEGORI" Type="int" />
+  </EntityType>
+  <Association Name="FK_TBL_SATIS_TBL_MUSTERI">
+    <End Role="TBL_MUSTERI" Type="Self.TBL_MUSTERI" Multiplicity="0..1" />
+    <End Role="TBL_SATIS" Type="Self.TBL_SATIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_MUSTERI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SATIS">
+        <PropertyRef Name="MUSTERI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SATIS_TBL_PERSONEL">
+    <End Role="TBL_PERSONEL" Type="Self.TBL_PERSONEL" Multiplicity="0..1" />
+    <End Role="TBL_SATIS" Type="Self.TBL_SATIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_PERSONEL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SATIS">
+        <PropertyRef Name="PERSONEL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_SATIS_TBL_URUN">
+    <End Role="TBL_URUN" Type="Self.TBL_URUN" Multiplicity="0..1" />
+    <End Role="TBL_SATIS" Type="Self.TBL_SATIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_URUN">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_SATIS">
+        <PropertyRef Name="URUN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TBL_URUN_TBL_KATEGORI">
+    <End Role="TBL_KATEGORI" Type="Self.TBL_KATEGORI" Multiplicity="0..1" />
+    <End Role="TBL_URUN" Type="Self.TBL_URUN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBL_KATEGORI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TBL_URUN">
+        <PropertyRef Name="KATEGORI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Db_StokModelStoreContainer">
+    <EntitySet Name="TBL_KATEGORI" EntityType="Self.TBL_KATEGORI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_MUSTERI" EntityType="Self.TBL_MUSTERI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PERSONEL" EntityType="Self.TBL_PERSONEL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SATIS" EntityType="Self.TBL_SATIS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_URUN" EntityType="Self.TBL_URUN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBL_SATIS_TBL_MUSTERI" Association="Self.FK_TBL_SATIS_TBL_MUSTERI">
+      <End Role="TBL_MUSTERI" EntitySet="TBL_MUSTERI" />
+      <End Role="TBL_SATIS" EntitySet="TBL_SATIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SATIS_TBL_PERSONEL" Association="Self.FK_TBL_SATIS_TBL_PERSONEL">
+      <End Role="TBL_PERSONEL" EntitySet="TBL_PERSONEL" />
+      <End Role="TBL_SATIS" EntitySet="TBL_SATIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_SATIS_TBL_URUN" Association="Self.FK_TBL_SATIS_TBL_URUN">
+      <End Role="TBL_URUN" EntitySet="TBL_URUN" />
+      <End Role="TBL_SATIS" EntitySet="TBL_SATIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TBL_URUN_TBL_KATEGORI" Association="Self.FK_TBL_URUN_TBL_KATEGORI">
+      <End Role="TBL_KATEGORI" EntitySet="TBL_KATEGORI" />
+      <End Role="TBL_URUN" EntitySet="TBL_URUN" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
