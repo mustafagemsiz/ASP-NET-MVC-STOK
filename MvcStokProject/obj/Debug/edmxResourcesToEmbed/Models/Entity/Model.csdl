@@ -20,6 +20,7 @@
     <Property Name="ADRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="BAKIYE" Type="Decimal" Precision="18" Scale="2" />
     <NavigationProperty Name="TBL_SATIS" Relationship="Self.FK_TBL_SATIS_TBL_MUSTERI" FromRole="TBL_MUSTERI" ToRole="TBL_SATIS" />
+    <Property Name="DURUM" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBL_PERSONEL">
     <Key>
@@ -60,6 +61,7 @@
     <Property Name="KATEGORI" Type="Int32" />
     <NavigationProperty Name="TBL_KATEGORI" Relationship="Self.FK_TBL_URUN_TBL_KATEGORI" FromRole="TBL_URUN" ToRole="TBL_KATEGORI" />
     <NavigationProperty Name="TBL_SATIS" Relationship="Self.FK_TBL_SATIS_TBL_URUN" FromRole="TBL_URUN" ToRole="TBL_SATIS" />
+    <Property Name="DURUM" Type="Boolean" />
   </EntityType>
   <Association Name="FK_TBL_URUN_TBL_KATEGORI">
     <End Role="TBL_KATEGORI" Type="Self.TBL_KATEGORI" Multiplicity="0..1" />

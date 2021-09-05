@@ -12,6 +12,7 @@
     <EntitySetMapping Name="TBL_MUSTERI">
       <EntityTypeMapping TypeName="Db_StokModel.TBL_MUSTERI">
         <MappingFragment StoreEntitySet="TBL_MUSTERI">
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AD" ColumnName="AD" />
           <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
@@ -49,6 +50,7 @@
     <EntitySetMapping Name="TBL_URUN">
       <EntityTypeMapping TypeName="Db_StokModel.TBL_URUN">
         <MappingFragment StoreEntitySet="TBL_URUN">
+          <ScalarProperty Name="DURUM" ColumnName="DURUM" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="AD" ColumnName="AD" />
           <ScalarProperty Name="MARKA" ColumnName="MARKA" />

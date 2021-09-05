@@ -1,0 +1,37 @@
+﻿@model MvcStokProject.Models.Entity.TBL_MUSTERI
+
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("MusteriGuncelle", "Musteri", FormMethod.Post))
+{
+    <h2 style="text-align:center; margin-top:15px;">Müşteri Güncelleme Paneli</h2>
+    <div>
+        @Html.HiddenFor(x => x.ID)
+        <label style="font-weight:bold;">Ad</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Soyad</label>
+        @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Şehir</label>
+        @Html.TextBoxFor(x => x.SEHIR, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Telefon</label>
+        @Html.TextBoxFor(x => x.TELEFON, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Adres</label>
+        @Html.TextAreaFor(x => x.ADRES, new { @class = "form-control", @required = "required", @rows="4"})
+        <br />        
+        <label style="font-weight:bold;">Bakiye</label>
+        @Html.TextBoxFor(x => x.BAKIYE, new { @class = "form-control", @required = "required" })
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+
+}
+
+

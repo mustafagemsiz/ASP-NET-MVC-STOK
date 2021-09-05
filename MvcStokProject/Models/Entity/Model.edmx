@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Db_StokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Db_StokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TBL_KATEGORI">
           <Key>
             <PropertyRef Name="ID" />
@@ -23,6 +23,7 @@
           <Property Name="TELEFON" Type="varchar" MaxLength="25" />
           <Property Name="ADRES" Type="varchar" MaxLength="50" />
           <Property Name="BAKIYE" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="TBL_PERSONEL">
           <Key>
@@ -57,6 +58,7 @@
           <Property Name="ALİSFİYAT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="SATİSFİYAT" Type="decimal" Precision="18" Scale="2" />
           <Property Name="KATEGORI" Type="int" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <Association Name="FK_TBL_SATIS_TBL_MUSTERI">
           <End Role="TBL_MUSTERI" Type="Self.TBL_MUSTERI" Multiplicity="0..1" />
@@ -129,8 +131,7 @@
             <End Role="TBL_URUN" EntitySet="TBL_URUN" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Db_StokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -154,6 +155,7 @@
           <Property Name="ADRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="BAKIYE" Type="Decimal" Precision="18" Scale="2" />
           <NavigationProperty Name="TBL_SATIS" Relationship="Self.FK_TBL_SATIS_TBL_MUSTERI" FromRole="TBL_MUSTERI" ToRole="TBL_SATIS" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="TBL_PERSONEL">
           <Key>
@@ -194,6 +196,7 @@
           <Property Name="KATEGORI" Type="Int32" />
           <NavigationProperty Name="TBL_KATEGORI" Relationship="Self.FK_TBL_URUN_TBL_KATEGORI" FromRole="TBL_URUN" ToRole="TBL_KATEGORI" />
           <NavigationProperty Name="TBL_SATIS" Relationship="Self.FK_TBL_SATIS_TBL_URUN" FromRole="TBL_URUN" ToRole="TBL_SATIS" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <Association Name="FK_TBL_URUN_TBL_KATEGORI">
           <End Role="TBL_KATEGORI" Type="Self.TBL_KATEGORI" Multiplicity="0..1" />
@@ -283,6 +286,7 @@
           <EntitySetMapping Name="TBL_MUSTERI">
             <EntityTypeMapping TypeName="Db_StokModel.TBL_MUSTERI">
               <MappingFragment StoreEntitySet="TBL_MUSTERI">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="SOYAD" ColumnName="SOYAD" />
@@ -320,6 +324,7 @@
           <EntitySetMapping Name="TBL_URUN">
             <EntityTypeMapping TypeName="Db_StokModel.TBL_URUN">
               <MappingFragment StoreEntitySet="TBL_URUN">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
                 <ScalarProperty Name="MARKA" ColumnName="MARKA" />

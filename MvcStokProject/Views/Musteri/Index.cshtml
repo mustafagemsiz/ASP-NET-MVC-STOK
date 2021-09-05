@@ -1,0 +1,99 @@
+﻿@using MvcStokProject.Models.Entity
+@model List<TBL_MUSTERI>
+@*@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList <TBL_MUSTERI>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center; margin-top:15px;">Müşteriler</h2>
+<button style="margin-bottom:15px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Müşteri Ekle</button>
+<table class=" myList table  table-striped table-hover responsive">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Müşteri Ad Soyad</th>
+            <th scope="col">Şehir</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Adres</th>
+            <th scope="col">Bakiye</th>
+            <th scope="col" style="text-align:right" >İşlemler</th>
+            <th scope="col" ></th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.AD @item.SOYAD
+                </td>
+                <td>
+                    @item.SEHIR
+                </td>
+                <td>@item.TELEFON</td>
+                <td>@item.ADRES</td>
+                <td>@item.BAKIYE</td>
+                <td>
+                    @Html.ActionLink("Güncelle", "MusteriGetir", new { id = item.ID }, new { @class = "btn btn-warning" })
+                </td>
+                <td style="text-align:left">
+                    @Html.ActionLink("Sil", "MusteriSil", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+
+                </td>
+                
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Müşteri Ekleme Paneli</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Çıkış"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/Musteri/MusteriEkle/" method="post">
+                    <div class="modal-body">
+                        <label style="font-weight:bold; margin-bottom:5px">Müşteri Ad</label>
+                        <input type="text" placeholder="Müşteri Ad Giriniz." name="AD" value="" class="form-control" required />
+                        <br />
+                        <label style="font-weight:bold; margin-bottom:5px">Müşteri Soyad</label>
+                        <input type="text" placeholder="Müşteri Soyad Giriniz." name="SOYAD" value="" class="form-control" required />
+                        <br />
+                        <label style="font-weight:bold; margin-bottom:5px">Müşteri Şehir</label>
+                        <input type="text" placeholder="Şehir Giriniz." name="SEHIR" value="" class="form-control" required />
+                        <br />
+                        <label style="font-weight:bold; margin-bottom:5px">Müşteri Telefon</label>
+                        <input type="number" min="0" placeholder="Telefon Numarası Giriniz." name="TELEFON" value="" class="form-control" required />
+                        <br />                        
+                        <label style="font-weight:bold; margin-bottom:5px">Müşteri Adres</label>
+                        <textarea class="form-control" rows="4" required placeholder="Müşteri Adres Giriniz." name="ADRES"> </textarea>
+                        <br />                        
+                        <label style="font-weight:bold; margin-bottom:5px">Müşteri Bakiye</label>
+                        <input type="number" max="100000000" min="0" placeholder="Müşteri Bakiyesi Giriniz." name="BAKIYE" value="" class="form-control" required />
+                        <br />
+                        <button class="btn btn-success">Kaydet</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Çıkış</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-bottom:30px">
+
+</div>
+<!-- End Modal -->
+
+        @*@Html.PagedListPager((IPagedList)Model, sayfa=>Url.Action("Index", new { sayfa }),new PagedListRenderOptions
+   {
+       LiElementClasses=new List<string>
+            {"page-link"}
+   })*@
+

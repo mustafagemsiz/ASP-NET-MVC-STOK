@@ -27,6 +27,7 @@ namespace MvcStokProject.Models.Entity
         public Nullable<decimal> ALİSFİYAT { get; set; }
         public Nullable<decimal> SATİSFİYAT { get; set; }
         public Nullable<int> KATEGORI { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     
         public virtual TBL_KATEGORI TBL_KATEGORI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

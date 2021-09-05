@@ -71,3 +71,7 @@ C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\EntityFramework.dl
 C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\EntityFramework.SqlServer.dll
 C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\EntityFramework.xml
 C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\EntityFramework.SqlServer.xml
+C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\PagedList.dll
+C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\PagedList.Mvc.dll
+C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\PagedList.xml
+C:\Users\birha\source\repos\MvcStokProject\MvcStokProject\bin\PagedList.Mvc.xml
