@@ -123,6 +123,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MusteriController.cs" />
+    <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -141,6 +143,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity\TBL_ADMIN.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Entity\TBL_KATEGORI.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -177,6 +182,10 @@
     <Content Include="Views\Urun\UrunGetir.cshtml" />
     <Content Include="Views\Musteri\Index.cshtml" />
     <Content Include="Views\Musteri\MusteriGetir.cshtml" />
+    <Content Include="Views\Satis\Index.cshtml" />
+    <Content Include="Views\Satis\SatisEkle.cshtml" />
+    <Content Include="Views\Personel\Index.cshtml" />
+    <Content Include="Views\Personel\PersonelGetir.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

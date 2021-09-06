@@ -1,0 +1,92 @@
+﻿@using MvcStokProject.Models.Entity
+@model List<TBL_PERSONEL>
+@*@using PagedList
+    @using PagedList.Mvc
+    @model PagedList.IPagedList <TBL_MUSTERI>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 style="text-align:center; margin-top:15px;">Personeller</h2>
+<button style="margin-bottom:15px;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Personel Ekle</button>
+<table class=" myList table  table-striped table-bordered table-hover responsive">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Ad Soyad</th>
+            <th scope="col">Adres</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Departman</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.AD @item.SOYAD
+                </td>
+                <td>
+                    @item.ADRES
+                </td>
+                <td>@item.TELEFON</td>
+                <td>@item.DEPARTMAN</td>
+                <td>
+                    @Html.ActionLink("Güncelle", "PersonelGetir", new { id = item.ID }, new { @class = "btn btn-warning" })
+ 
+                    @Html.ActionLink("Sil", "PersonelSil", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+
+                </td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Müşteri Ekleme Paneli</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Çıkış"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/Personel/PersonelEkle/" method="post">
+                    <div class="modal-body">
+                        <label style="font-weight:bold; margin-bottom:5px">Personel Ad</label>
+                        <input type="text" placeholder="Personel Ad Giriniz." name="AD" value="" class="form-control" required />
+                        <br />
+                        <label style="font-weight:bold; margin-bottom:5px">Personel Soyad</label>
+                        <input type="text" placeholder="Personel Soyad Giriniz." name="SOYAD" value="" class="form-control" required />
+                        <br />
+                        <label style="font-weight:bold; margin-bottom:5px">Personel Adres</label>
+                        <input type="text" placeholder="Adres Giriniz." name="ADRES" value="" class="form-control" required />
+                        <br />
+                        <label style="font-weight:bold; margin-bottom:5px">Personel Telefon</label>
+                        <input type="number" min="0" placeholder="Telefon Numarası Giriniz." name="TELEFON" value="" class="form-control" required />
+                        <br />
+                        <label style="font-weight:bold; margin-bottom:5px">Personel Departman</label>
+                        <input type="text" placeholder="Departman Giriniz." name="DEPARTMAN" value="" class="form-control" required />
+                        <br />
+                        <button class="btn btn-success">Kaydet</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Çıkış</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="margin-bottom:30px">
+
+</div>
+<!-- End Modal -->
+@*@Html.PagedListPager((IPagedList)Model, sayfa=>Url.Action("Index", new { sayfa }),new PagedListRenderOptions
+    {
+        LiElementClasses=new List<string>
+             {"page-link"}
+    })*@
+
+

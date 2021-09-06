@@ -1,0 +1,47 @@
+﻿@using MvcStokProject.Models.Entity
+@model List<TBL_SATIS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+
+    .margintop {
+        margin-bottom: 15px;
+    }
+
+</style>
+<h2 style="text-align:center; margin-top:15px;">Satış Verileri</h2>
+@Html.ActionLink("Satış Ekle", "SatisEkle", null, new { @class = "btn btn-primary margintop" })
+<table class="myList table table-bordered table-striped table-hover">
+    <thead style="text-align:center;">
+        <tr>
+            <th scope="col">Ürün</th>
+            <th scope="col">Personel</th>
+            <th scope="col">Müşteri</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Tarih & Saat</th>
+            <th scope="col" style="width:150px">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody style="text-align:center;">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TBL_URUN.AD</td>
+                <td>@item.TBL_PERSONEL.AD @item.TBL_PERSONEL.SOYAD</td>
+                <td>@item.TBL_MUSTERI.AD @item.TBL_MUSTERI.SOYAD</td>
+                <td>@item.FIYAT</td>
+                <td>@item.TARIH</td>
+                <td>
+                    @Html.ActionLink("Güncelle", "SatisGetir", new { id = item.ID }, new { @class = "btn btn-warning" })
+                    @Html.ActionLink("Sil", "SatisSil", new { id = item.ID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğine emin misin?');" })
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+

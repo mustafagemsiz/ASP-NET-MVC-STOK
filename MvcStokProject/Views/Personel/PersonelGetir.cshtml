@@ -1,0 +1,32 @@
+﻿@model MvcStokProject.Models.Entity.TBL_PERSONEL
+
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("PersonelGuncelle", "Personel", FormMethod.Post))
+{
+    <h2 style="text-align:center; margin-top:15px;">Personel Güncelleme Paneli</h2>
+    <div>
+        @Html.HiddenFor(x => x.ID)
+        <label style="font-weight:bold;">Ad</label>
+        @Html.TextBoxFor(x => x.AD, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Soyad</label>
+        @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Adres</label>
+        @Html.TextBoxFor(x => x.ADRES, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Telefon</label>
+        @Html.TextBoxFor(x => x.TELEFON, new { @class = "form-control", @required = "required" })
+        <br />
+        <label style="font-weight:bold;">Departman</label>
+        @Html.TextBoxFor(x => x.DEPARTMAN, new { @class = "form-control", @required = "required" })
+        <br />
+        <button class="btn btn-success">Kaydet</button>
+    </div>
+
+}

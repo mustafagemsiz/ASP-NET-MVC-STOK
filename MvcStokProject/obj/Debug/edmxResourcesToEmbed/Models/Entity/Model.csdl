@@ -33,6 +33,7 @@
     <Property Name="ADRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="DEPARTMAN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="TBL_SATIS" Relationship="Self.FK_TBL_SATIS_TBL_PERSONEL" FromRole="TBL_PERSONEL" ToRole="TBL_SATIS" />
+    <Property Name="DURUM" Type="Boolean" />
   </EntityType>
   <EntityType Name="TBL_SATIS">
     <Key>

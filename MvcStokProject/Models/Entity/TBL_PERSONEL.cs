@@ -26,6 +26,7 @@ namespace MvcStokProject.Models.Entity
         public string TELEFON { get; set; }
         public string ADRES { get; set; }
         public string DEPARTMAN { get; set; }
+        public Nullable<bool> DURUM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_SATIS> TBL_SATIS { get; set; }

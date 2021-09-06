@@ -30,6 +30,7 @@
     <Property Name="TELEFON" Type="varchar" MaxLength="25" />
     <Property Name="ADRES" Type="varchar" MaxLength="50" />
     <Property Name="DEPARTMAN" Type="varchar" MaxLength="50" />
+    <Property Name="DURUM" Type="bit" />
   </EntityType>
   <EntityType Name="TBL_SATIS">
     <Key>

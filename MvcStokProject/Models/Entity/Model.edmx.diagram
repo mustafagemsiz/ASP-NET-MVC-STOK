@@ -14,6 +14,7 @@
         <AssociationConnector Association="Db_StokModel.FK_TBL_SATIS_TBL_MUSTERI" ManuallyRouted="false" />
         <AssociationConnector Association="Db_StokModel.FK_TBL_SATIS_TBL_PERSONEL" ManuallyRouted="false" />
         <AssociationConnector Association="Db_StokModel.FK_TBL_SATIS_TBL_URUN" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Db_StokModel.TBL_ADMIN" Width="1.5" PointX="6.375" PointY="4.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
