@@ -1,5 +1,6 @@
 *.css linguist-detectable=false
 *.html linguist-detectable=false
-*.cs linguist-detectable=false
+*.cs linguist-detectable=true
+*.html linguist-detectable=false
 *.htm inguist-detectable=false
 *.asax linguist-detectable=true
