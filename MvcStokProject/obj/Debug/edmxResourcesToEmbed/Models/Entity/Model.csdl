@@ -134,5 +134,14 @@
       <End Role="TBL_URUN" EntitySet="TBL_URUN" />
       <End Role="TBL_SATIS" EntitySet="TBL_SATIS" />
     </AssociationSet>
+    <EntitySet Name="TBL_ADMIN" EntityType="Db_StokModel.TBL_ADMIN" />
   </EntityContainer>
+  <EntityType Name="TBL_ADMIN">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KULLANICI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

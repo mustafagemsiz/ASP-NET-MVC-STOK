@@ -102,6 +102,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Admin Page\css\fontawesome-all.css" />
+    <Content Include="Content\Admin Page\css\style.css" />
+    <Content Include="Content\Admin Page\images\cover4.jpg" />
+    <Content Include="Content\Admin Page\index.html" />
+    <Content Include="Content\Admin Page\webfonts\fa-brands-400.svg" />
+    <Content Include="Content\Admin Page\webfonts\fa-regular-400.svg" />
+    <Content Include="Content\Admin Page\webfonts\fa-solid-900.svg" />
     <Content Include="Content\DataTables\jquery-3.6.0.min.js" />
     <Content Include="Content\DataTables\jquery.dataTables.css" />
     <Content Include="Content\DataTables\jquery.dataTables.js" />
@@ -121,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GirisYapController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MusteriController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
@@ -173,6 +181,18 @@
     <Content Include="Models\Entity\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Admin Page\webfonts\fa-brands-400.eot" />
+    <Content Include="Content\Admin Page\webfonts\fa-brands-400.ttf" />
+    <Content Include="Content\Admin Page\webfonts\fa-brands-400.woff" />
+    <Content Include="Content\Admin Page\webfonts\fa-brands-400.woff2" />
+    <Content Include="Content\Admin Page\webfonts\fa-regular-400.eot" />
+    <Content Include="Content\Admin Page\webfonts\fa-regular-400.ttf" />
+    <Content Include="Content\Admin Page\webfonts\fa-regular-400.woff" />
+    <Content Include="Content\Admin Page\webfonts\fa-regular-400.woff2" />
+    <Content Include="Content\Admin Page\webfonts\fa-solid-900.eot" />
+    <Content Include="Content\Admin Page\webfonts\fa-solid-900.ttf" />
+    <Content Include="Content\Admin Page\webfonts\fa-solid-900.woff" />
+    <Content Include="Content\Admin Page\webfonts\fa-solid-900.woff2" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Kategori\Index.cshtml" />
@@ -186,6 +206,7 @@
     <Content Include="Views\Satis\SatisEkle.cshtml" />
     <Content Include="Views\Personel\Index.cshtml" />
     <Content Include="Views\Personel\PersonelGetir.cshtml" />
+    <Content Include="Views\GirisYap\Giris.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
